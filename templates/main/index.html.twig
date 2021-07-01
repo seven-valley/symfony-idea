@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<title>Hello MainController!</title>
+
+{% block body %}
+{% for serie in series %}
+
+{{ serie.title }} <strong> {{ serie.categ.title }}</strong><br>
+
+{% endfor %}
+
+{% endblock %}
