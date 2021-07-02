@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SerieRepository;
+use App\Repository\IdeaRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SerieRepository::class)
+ * @ORM\Entity(repositoryClass=IdeaRepository::class)
  */
-class Serie
+class Idea
 {
     /**
      * @ORM\Id
@@ -20,10 +20,10 @@ class Serie
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $title;
+    private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Categ::class)
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="ideas")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categ;
@@ -33,24 +33,24 @@ class Serie
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getCateg(): ?Categ
+    public function getCateg(): ?Category
     {
         return $this->categ;
     }
 
-    public function setCateg(?Categ $categ): self
+    public function setCateg(?Category $categ): self
     {
         $this->categ = $categ;
 

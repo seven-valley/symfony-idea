@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-
-<title>Hello MainController!</title>
-
-{% block body %}
-{% for serie in series %}
-
-{{ serie.title }} <strong> {{ serie.categ.title }}</strong><br>
-
-{% endfor %}
-
-{% endblock %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste of Idea</title>
+</head>
+<body>
+    {% for categ in categs %}
+    <h1>{{ categ.name }}</h1>
+        {% for idea in categ.ideas %}
+        - {{ idea.name }}
+        {% endfor %}
+    {% endfor %}
+</body>
+</html>

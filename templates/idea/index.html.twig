@@ -1,0 +1,21 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block central %}
+{{ form_start(formIdea)}}
+{{ form_widget(formIdea)}}
+<button class="success" type="submit">
+<i class="fa fa-plus"></i>
+</button>
+{{ form_end(formIdea)}}
+<table>
+    <tbody>
+        {% for idea in ideas%}
+        <tr>
+            <td>{{ idea.name }}</td>
+            <td><strong>{{ idea.categ.name }}</strong></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
